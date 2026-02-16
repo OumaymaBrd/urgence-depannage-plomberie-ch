@@ -1,11 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Soudure et Fabrication Métallique | Services Professionnels</title>
+    <meta name="description"
+        content="Services de soudure, fabrication de portails, fenêtres et structures métalliques de haute qualité.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Oswald:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1 style="color: red;">urgence-depannage-plomberie-ch</h1>
+
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">Soudure<span>Pro</span></a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Galerie</a></li>
+                    <li><a href="#contact" class="btn-primary">Contactez-nous</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="fade-in">Expertise en <span class="highlight">Soudure</span> et Métallerie</h1>
+            <p class="fade-in delay-1">Conception et fabrication sur mesure de portails, rampes, et structures
+                métalliques durables.</p>
+            <div class="hero-buttons fade-in delay-2">
+                <a href="#gallery" class="btn-primary">Voir nos réalisations</a>
+                <a href="#contact" class="btn-secondary">Demander un devis</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nos Services</h2>
+                <div class="divider"></div>
+                <p>Des solutions métalliques adaptées à vos besoins, alliant sécurité et esthétique.</p>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="icon">🛠️</div>
+                    <h3>Fabrication Sur Mesure</h3>
+                    <p>Portails, portes, fenêtres et grilles de protection conçus selon vos dimensions et préférences.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="icon">🏗️</div>
+                    <h3>Structures Métalliques</h3>
+                    <p>Charpentes légères, escaliers et mezzanines pour particuliers et professionnels.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">✨</div>
+                    <h3>Finitions Soignées</h3>
+                    <p>Traitement anti-rouille et peinture de haute qualité pour une durabilité maximale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nos Réalisations</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="gallery-grid">
+                <!-- Using provided images -->
+                <div class="gallery-item large">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipM3Sh6SR7tDECvjbZycLwj6eG3GSgLM8aa7vkxv=s1360-w1360-h1020-rw"
+                        alt="Portail métallique noir avec décorations dorées">
+                    <div class="overlay">
+                        <span>Portail Prestige</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipPUr_ZV25ejWiyI0uWDYEuZ8bJTPrkxoyKbVSRu=s1360-w1360-h1020-rw"
+                        alt="Structure métallique en construction">
+                    <div class="overlay">
+                        <span>Structure & Cadres</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipMv-isvbLH_zYSMwwF374uJYBtfKC4xMupAfkAR=s1360-w1360-h1020-rw"
+                        alt="Grille de sécurité fenêtre">
+                    <div class="overlay">
+                        <span>Sécurité Fenêtres</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipOQMXfWoNUvOxnpBXAfEphQGfV1dfqjv2NrMaJW=s1360-w1360-h1020-rw"
+                        alt="Porte métallique moderne">
+                    <div class="overlay">
+                        <span>Porte d'Entrée</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipOYf2mLDD7E1NayaSQ0-uDNw0LsRx5A83KPjK6F=s1360-w1360-h1020-rw"
+                        alt="Détail forge">
+                    <div class="overlay">
+                        <span>Design Sur Mesure</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipNv9U8WiwOEifZ5pQlmrFWsWbBuiz0tlpJAjlRy=s1360-w1360-h1020-rw"
+                        alt="Atelier de soudure">
+                    <div class="overlay">
+                        <span>Notre Atelier</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location/Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Contactez-nous</h2>
+                    <p>Prêt à démarrer votre projet ? Appelez-nous ou rendez-nous visite.</p>
+
+                    <div class="info-item">
+                        <strong>📍 Adresse</strong>
+                        <p>123 Rue de l'Industrie, Votre Ville</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>📞 Téléphone</strong>
+                        <p>+212 6 00 00 00 00</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>📧 Email</strong>
+                        <p>contact@votreentreprise.com</p>
+                    </div>
+
+                    <div class="buttons">
+                        <a href="tel:+212600000000" class="btn-primary">Appeler Maintenant</a>
+                    </div>
+                </div>
+                <div class="map-placeholder">
+                    <!-- Placeholder for map, using an image for now to keep style consistent -->
+                    <div class="map-visual">
+                        <span>Carte Google Maps</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 SoudurePro. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
