@@ -2,180 +2,460 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soudure et Fabrication Métallique | Services Professionnels</title>
-    <meta name="description"
-        content="Services de soudure, fabrication de portails, fenêtres et structures métalliques de haute qualité.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <title>SoudurePro & Plomberie | Accueil</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Oswald:wght@500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Oswald:wght@500;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Homepage Specific Enhancements */
+        .hero-slider {
+            height: 95vh;
+            /* Full screen impact */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            /* PARALLAX EFFECT */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale(1.05);
+            /* Slight Zoom for effect */
+            transition: transform 10s ease;
+        }
+
+        /* Hover effect on Hero BG */
+        .hero-slider:hover .hero-bg {
+            transform: scale(1.1);
+        }
+
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(15, 106, 54, 0.85) 0%, rgba(0, 0, 0, 0.6) 100%);
+            /* Green to Black Gradient */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 900px;
+        }
+
+        .hero-title-main {
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            font-family: 'Oswald', sans-serif;
+        }
+
+        /* Service Cards - Overlap Effect */
+        .services-overlap {
+            margin-top: -80px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            transition: all 0.4s ease;
+            height: 100%;
+            border-bottom: 4px solid var(--stinc-green);
+            border-radius: 8px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            border-bottom-color: var(--accent-yellow);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background: rgba(15, 106, 54, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .icon-circle {
+            background: var(--stinc-green);
+        }
+
+        .service-card:hover .service-icon {
+            color: white !important;
+        }
+
+        .service-icon {
+            font-size: 30px;
+            color: var(--stinc-green);
+            transition: color 0.3s ease;
+        }
+
+        /* Split Section Styles */
+        .image-frame {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 20px 20px 0px rgba(15, 106, 54, 0.1);
+            /* Geometric shadow */
+        }
+
+        .image-frame img {
+            transition: transform 0.5s ease;
+        }
+
+        .image-frame:hover img {
+            transform: scale(1.03);
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- Navigation -->
-    <header class="header">
-        <div class="container header-container">
-            <a href="#" class="logo">Soudure<span>Pro</span></a>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="#home">Accueil</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#gallery">Galerie</a></li>
-                    <li><a href="#contact" class="btn-primary">Contactez-nous</a></li>
-                </ul>
-            </nav>
-            <button class="mobile-menu-btn" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <!-- Custom Preloader -->
+    <div id="royal_preloader" class="royal_preloader">
+        <div class="royal_preloader_loader">
+            <div class="royal_preloader_bar"></div>
+            <div class="royal_preloader_percentage">0%</div>
         </div>
-    </header>
+    </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h1 class="fade-in">Expertise en <span class="highlight">Soudure</span> et Métallerie</h1>
-            <p class="fade-in delay-1">Conception et fabrication sur mesure de portails, rampes, et structures
-                métalliques durables.</p>
-            <div class="hero-buttons fade-in delay-2">
-                <a href="#gallery" class="btn-primary">Voir nos réalisations</a>
-                <a href="#contact" class="btn-secondary">Demander un devis</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="section services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Nos Services</h2>
-                <div class="divider"></div>
-                <p>Des solutions métalliques adaptées à vos besoins, alliant sécurité et esthétique.</p>
-            </div>
-            <div class="grid-3">
-                <div class="card">
-                    <div class="icon">🛠️</div>
-                    <h3>Fabrication Sur Mesure</h3>
-                    <p>Portails, portes, fenêtres et grilles de protection conçus selon vos dimensions et préférences.
-                    </p>
-                </div>
-                <div class="card">
-                    <div class="icon">🏗️</div>
-                    <h3>Structures Métalliques</h3>
-                    <p>Charpentes légères, escaliers et mezzanines pour particuliers et professionnels.</p>
-                </div>
-                <div class="card">
-                    <div class="icon">✨</div>
-                    <h3>Finitions Soignées</h3>
-                    <p>Traitement anti-rouille et peinture de haute qualité pour une durabilité maximale.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="section gallery">
-        <div class="container">
-            <div class="section-header">
-                <h2>Nos Réalisations</h2>
-                <div class="divider"></div>
-            </div>
-            <div class="gallery-grid">
-                <!-- Using provided images -->
-                <div class="gallery-item large">
-                    <img src="https://lh3.googleusercontent.com/p/AF1QipM3Sh6SR7tDECvjbZycLwj6eG3GSgLM8aa7vkxv=s1360-w1360-h1020-rw"
-                        alt="Portail métallique noir avec décorations dorées">
-                    <div class="overlay">
-                        <span>Portail Prestige</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://lh3.googleusercontent.com/p/AF1QipPUr_ZV25ejWiyI0uWDYEuZ8bJTPrkxoyKbVSRu=s1360-w1360-h1020-rw"
-                        alt="Structure métallique en construction">
-                    <div class="overlay">
-                        <span>Structure & Cadres</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://lh3.googleusercontent.com/p/AF1QipMv-isvbLH_zYSMwwF374uJYBtfKC4xMupAfkAR=s1360-w1360-h1020-rw"
-                        alt="Grille de sécurité fenêtre">
-                    <div class="overlay">
-                        <span>Sécurité Fenêtres</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://lh3.googleusercontent.com/p/AF1QipOQMXfWoNUvOxnpBXAfEphQGfV1dfqjv2NrMaJW=s1360-w1360-h1020-rw"
-                        alt="Porte métallique moderne">
-                    <div class="overlay">
-                        <span>Porte d'Entrée</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://lh3.googleusercontent.com/p/AF1QipOYf2mLDD7E1NayaSQ0-uDNw0LsRx5A83KPjK6F=s1360-w1360-h1020-rw"
-                        alt="Détail forge">
-                    <div class="overlay">
-                        <span>Design Sur Mesure</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://lh3.googleusercontent.com/p/AF1QipNv9U8WiwOEifZ5pQlmrFWsWbBuiz0tlpJAjlRy=s1360-w1360-h1020-rw"
-                        alt="Atelier de soudure">
-                    <div class="overlay">
-                        <span>Notre Atelier</span>
+    <div id="page" class="site">
+        <header id="site-header" class="site-header header-static">
+            <!-- Topbar (Green) -->
+            <div class="header-topbar style-2 d-none d-lg-block">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-4">
+                            <div class="topbar-socials list-social">
+                                <ul class="d-flex gap-3 list-unstyled mb-0">
+                                    <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <ul class="topbar-info d-flex mb-0 justify-content-end clearfix list-unstyled">
+                                <li class="me-4"><i class="fas fa-map-marker-alt me-2"></i>423 rue de Cocherel, 27100
+                                    Evreux</li>
+                                <li class="me-4"><a href="mailto:contact@stinc.fr"><i
+                                            class="fas fa-envelope me-2"></i>contact@stinc.fr</a></li>
+                                <li><a href="tel:0232284169"><i class="fas fa-phone-alt me-2"></i>02 32 28 41 69</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Location/Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <h2>Contactez-nous</h2>
-                    <p>Prêt à démarrer votre projet ? Appelez-nous ou rendez-nous visite.</p>
-
-                    <div class="info-item">
-                        <strong>📍 Adresse</strong>
-                        <p>123 Rue de l'Industrie, Votre Ville</p>
-                    </div>
-                    <div class="info-item">
-                        <strong>📞 Téléphone</strong>
-                        <p>+212 6 00 00 00 00</p>
-                    </div>
-                    <div class="info-item">
-                        <strong>📧 Email</strong>
-                        <p>contact@votreentreprise.com</p>
-                    </div>
-
-                    <div class="buttons">
-                        <a href="tel:+212600000000" class="btn-primary">Appeler Maintenant</a>
-                    </div>
-                </div>
-                <div class="map-placeholder">
-                    <!-- Placeholder for map, using an image for now to keep style consistent -->
-                    <div class="map-visual">
-                        <span>Carte Google Maps</span>
+            <!-- Main Header (Green) -->
+            <div class="octf-main-header main-header-slight header-4 main-header-5 is-fixed">
+                <div class="container octf-mainbar-container">
+                    <div class="octf-mainbar-row octf-row">
+                        <div class="octf-col">
+                            <div id="site-logo" class="site-logo">
+                                <a href="index.html" class="stinc-logo transition-link">
+                                    <span class="logo-text">STINC</span>
+                                    <span class="logo-sub">PROFESSIONNELS</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="octf-col menu-col d-none d-lg-block">
+                            <nav id="site-navigation" class="main-navigation">
+                                <ul class="menu">
+                                    <li class="current-menu-item"><a href="index.html"
+                                            class="transition-link">Accueil</a></li>
+                                    <li><a href="magasin.html" class="transition-link">Magasin</a></li>
+                                    <li><a href="plomberie.html" class="transition-link">Plomberie</a></li>
+                                    <li><a href="climatisation.html" class="transition-link">Climatisation</a></li>
+                                    <li><a href="chauffage.html" class="transition-link">Chauffage</a></li>
+                                    <li><a href="contact.html" class="transition-link">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="mobile-toggle d-lg-none">
+                            <i class="fas fa-bars"></i>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 SoudurePro. Tous droits réservés.</p>
-        </div>
-    </footer>
+        <div id="content" class="site-content">
 
+            <!-- Hero Section with USER IMAGE 1 -->
+            <section id="home" class="hero-slider">
+                <!-- User Image 1: Showroom/Pipes -->
+                <div class="hero-bg"
+                    style="background-image: url('https://lh3.googleusercontent.com/p/AF1QipPGe6f93jH6zbcN1VDluaLZW35lkc_IvmLKcKSS=s1360-w1360-h1020-rw');">
+                </div>
+                <div class="hero-overlay"></div>
+
+                <div class="container hero-content text-center">
+                    <div class="hero-box slide-up">
+                        <div class="hero-bracket-text"
+                            style="color:#FFD700; font-weight:bold; letter-spacing:4px; margin-bottom:20px; text-transform:uppercase;">
+                            [ Service d'Urgence 24h/24 ]</div>
+                        <h1 class="hero-title-main">PLOMBERIE<br><span style="color:#FFD700;">CHAUFFAGE & CLIM</span>
+                        </h1>
+                        <p class="hero-subtitle mb-5" style="font-size:1.3rem; opacity:0.9;">Installation, Dépannage et
+                            Maintenance pour Particuliers et Professionnels.</p>
+                        <div class="hero-btns">
+                            <a href="contact.html"
+                                class="btn btn-primary btn-lg rounded-0 px-5 py-3 btn-glow transition-link"
+                                style="background:#FFD700; color:black; border:none; font-weight:bold;">DEMANDER UN
+                                DEVIS</a>
+                            <a href="magasin.html"
+                                class="btn btn-outline-light btn-lg rounded-0 px-5 py-3 ms-3 transition-link"
+                                style="border-width:2px; font-weight:bold;">NOTRE MAGASIN</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Service Cards (Overlapping Hero) -->
+            <div class="container services-overlap">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-card text-center">
+                            <div class="icon-circle"><i class="fas fa-faucet service-icon"></i></div>
+                            <h3 class="mb-3">Plomberie</h3>
+                            <p class="text-secondary">Installation sanitaire, recherche de fuite, dégorgement et
+                                réparation rapide.</p>
+                            <a href="plomberie.html" class="text-uppercase fw-bold text-success"
+                                style="font-size:12px; letter-spacing:1px;">Découvrir <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-card text-center">
+                            <div class="icon-circle"><i class="fas fa-fire service-icon"></i></div>
+                            <h3 class="mb-3">Chauffage</h3>
+                            <p class="text-secondary">Entretien de chaudière, installation de radiateurs et optimisation
+                                énergétique.</p>
+                            <a href="chauffage.html" class="text-uppercase fw-bold text-success"
+                                style="font-size:12px; letter-spacing:1px;">Découvrir <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-card text-center">
+                            <div class="icon-circle"><i class="fas fa-snowflake service-icon"></i></div>
+                            <h3 class="mb-3">Climatisation</h3>
+                            <p class="text-secondary">Installation de PAC air-air, split system et maintenance de vos
+                                climatisations.</p>
+                            <a href="climatisation.html" class="text-uppercase fw-bold text-success"
+                                style="font-size:12px; letter-spacing:1px;">Découvrir <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intro Section with USER IMAGE 2 -->
+            <section class="section py-5 my-5">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 mb-5 mb-lg-0">
+                            <!-- User Image 2: Workshop/Store Interior -->
+                            <div class="image-frame">
+                                <img src="https://lh3.googleusercontent.com/p/AF1QipOQMXfWoNUvOxnpBXAfEphQGfV1dfqjv2NrMaJW=s1360-w1360-h1020-rw"
+                                    alt="Atelier Stinc" class="img-fluid w-100">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 ps-lg-5">
+                            <span class="sub-heading d-block mb-2"
+                                style="color:#0f6a36; font-weight:800; text-transform:uppercase; letter-spacing:2px;">[
+                                Depuis 1989 ]</span>
+                            <h2 class="section-title mb-4" style="font-size:3rem; line-height:1.2;">Expertise & Qualité
+                                <br>Professionnelle</h2>
+                            <p class="lead text-dark mb-4">
+                                Spécialisée en plomberie, chauffage et climatisation, STINC intervient pour tous vos
+                                travaux d’installation, de dépannage et de maintenance.
+                            </p>
+                            <p class="text-secondary mb-5">
+                                Sous la direction de Bruno LEPIOUFFE, notre magasin et nos équipes techniques vous
+                                apportent des solutions concrètes. Que vous soyez un professionnel ou un particulier,
+                                nous mettons notre savoir-faire au service de votre confort thermique et sanitaire.
+                            </p>
+
+                            <div class="row mb-5">
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-check-circle text-warning fs-4 me-3"></i>
+                                        <span class="fw-bold">Intervention Rapide</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-warning fs-4 me-3"></i>
+                                        <span class="fw-bold">Certifié RGE</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-check-circle text-warning fs-4 me-3"></i>
+                                        <span class="fw-bold">Devis Gratuit</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-warning fs-4 me-3"></i>
+                                        <span class="fw-bold">SAV Réactif</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="contact.html" class="btn btn-dark rounded-0 px-4 py-3 transition-link"
+                                style="background:#1a1a1a; letter-spacing:1px;">NOUS CONTACTER</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="py-5"
+                style="background:#0f6a36; background-image: linear-gradient(rgba(15, 106, 54, 0.9), rgba(15, 106, 54, 0.9)), url('https://lh3.googleusercontent.com/p/AF1QipPGe6f93jH6zbcN1VDluaLZW35lkc_IvmLKcKSS=s1360-w1360-h1020-rw'); background-attachment: fixed; background-size: cover; color:white;">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <h2 style="color:white; margin-bottom:10px; font-weight:700;">Besoin d'un dépannage urgent ?
+                            </h2>
+                            <p class="mb-0 text-white-50 fs-5">Nos équipes sont disponibles pour intervenir rapidement
+                                sur Évreux et ses alentours.</p>
+                        </div>
+                        <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                            <a href="tel:0232284169" class="btn btn-warning px-5 py-3 rounded-0 fw-bold btn-glow"
+                                style="background:#FFD700; border:none; color:black; font-size:1.2rem;">02 32 28 41
+                                69</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- STINC FOOTER (Green) -->
+        <footer id="site-footer" class="site-footer stinc-footer-wrapper">
+            <div class="stinc-footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 mb-4">
+                            <div class="widget-footer">
+                                <div class="site-logo mb-3">
+                                    <span class="logo-text"
+                                        style="color:white; font-size:24px; font-weight:bold;">S.T.I.N.C</span>
+                                </div>
+                                <p class="footer-desc">Stinc, spécialiste dans le domaine de la plomberie, chauffage,
+                                    ventilation et climatisation.</p>
+                                <div class="footer-socials">
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 mb-4">
+                            <div class="widget-footer">
+                                <h6>Contactez-nous</h6>
+                                <ul class="footer-list list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>423 rue de Cocherel,
+                                        27100 Evreux</li>
+                                    <li class="mb-2"><a href="mailto:contact@stinc.fr"><i
+                                                class="fas fa-envelope me-2"></i>contact@stinc.fr</a></li>
+                                    <li><a href="tel:0232284169"><i class="fas fa-phone-alt me-2"></i>02 32 28 41 69</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 mb-4">
+                            <div class="widget-footer">
+                                <h6>Horaires</h6>
+                                <div class="footer-desc">
+                                    <p class="mb-2"><b>Ouverture :</b><br>Lun-Jeu 8h-12h / 13h30-18h<br>Ven 8h-12h</p>
+                                    <p><b>Showroom :</b><br>Lun-Jeu 8h-12h / 13h30-18h<br>Ven 8h-12h</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 mb-4">
+                            <div class="widget-footer">
+                                <h6>Plan du site</h6>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="footer-list list-unstyled">
+                                            <li><a href="index.html" class="transition-link">Accueil</a></li>
+                                            <li><a href="magasin.html" class="transition-link">Magasin</a></li>
+                                            <li><a href="contact.html" class="transition-link">Contact</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul class="footer-list list-unstyled">
+                                            <li><a href="plomberie.html" class="transition-link">Plomberie</a></li>
+                                            <li><a href="climatisation.html" class="transition-link">Climatisation</a>
+                                            </li>
+                                            <li><a href="chauffage.html" class="transition-link">Chauffage</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stinc-footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start">
+                            Copyright © 2026 | Tous droits réservés
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            Site Réalisé par Comwest
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 
