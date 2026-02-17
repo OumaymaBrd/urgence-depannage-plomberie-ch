@@ -102,8 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
                      <li><a href="plomberie.html">Plomberie</a></li>
                      <li><a href="chauffage.html">Chauffage</a></li>
                      <li><a href="climatisation.html">Climatisation</a></li>
-                     <li><a href="contact.html">Demande de devis</a></li>
-                     <li><a href="contact.html" style="color:#FFD700; font-weight:bold;">Dépannage urgent</a></li>
+                     <li><a href="devis.html">Demande de devis</a></li>
+                     <li><a href="depannage.html" style="color:#FFD700; font-weight:bold;" class="nav-btn-urgent">Dépannage urgent</a></li>
                  </ul>
                  <div class="mt-5 text-white">
                      <p><i class="fas fa-phone-alt text-warning me-2"></i> 02 32 28 41 69</p>
