@@ -82,24 +82,51 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Mobile Menu
+    // =================================
+    // MOBILE MENU TOGGLE (Side Panel)
+    // =================================
     const mobileToggle = document.querySelector('.mobile-toggle');
-    const nav = document.querySelector('.main-navigation');
+    const body = document.querySelector('body');
+
+    // Create Mobile Menu Wrapper if not exists
+    if (!document.querySelector('.mobile-nav-wrapper')) {
+        const mobileNavHTML = `
+             <div class="mobile-nav-overlay"></div>
+             <div class="mobile-nav-wrapper">
+                 <div class="mobile-nav-close"><i class="fas fa-times"></i></div>
+                 <div class="mobile-logo mb-4">
+                     <span style="color:white; font-size:24px; font-weight:bold; font-family:'Oswald'">STINC</span>
+                 </div>
+                 <ul class="mobile-menu-list">
+                     <li><a href="index.html">Accueil</a></li>
+                     <li><a href="plomberie.html">Plomberie</a></li>
+                     <li><a href="chauffage.html">Chauffage</a></li>
+                     <li><a href="climatisation.html">Climatisation</a></li>
+                     <li><a href="contact.html">Demande de devis</a></li>
+                     <li><a href="contact.html" style="color:#FFD700; font-weight:bold;">Dépannage urgent</a></li>
+                 </ul>
+                 <div class="mt-5 text-white">
+                     <p><i class="fas fa-phone-alt text-warning me-2"></i> 02 32 28 41 69</p>
+                     <p><i class="fas fa-envelope text-warning me-2"></i> contact@stinc.fr</p>
+                 </div>
+             </div>
+         `;
+        body.insertAdjacentHTML('beforeend', mobileNavHTML);
+    }
 
     if (mobileToggle) {
-        mobileToggle.addEventListener('click', () => {
-            if (nav.style.display === 'block') {
-                nav.style.display = 'none';
-            } else {
-                nav.style.display = 'block';
-                nav.style.position = 'absolute';
-                nav.style.top = '100%';
-                nav.style.left = '0';
-                nav.style.width = '100%';
-                nav.style.background = '#0f6a36';
-                nav.style.padding = '20px';
-                nav.style.zIndex = '999';
-            }
+        // Toggle Click
+        mobileToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            body.classList.add('mobile-nav-active');
         });
     }
+
+    // Close Click (Close button or Overlay)
+    document.addEventListener('click', function (e) {
+        if (e.target.closest('.mobile-nav-close') || e.target.classList.contains('mobile-nav-overlay')) {
+            body.classList.remove('mobile-nav-active');
+        }
+    });
+
 });
