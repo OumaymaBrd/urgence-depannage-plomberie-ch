@@ -99,12 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
                      <span style="display:block; color:white; font-size:10px; letter-spacing:1px; margin-top:0px;">URGENCE DÉPANNAGE • PLOMBERIE • CHAUFFAGE</span>
                  </div>
                  <ul class="mobile-menu-list">
-                     <li><a href="index.html">Accueil</a></li>
-                     <li><a href="plomberie.html">Plomberie</a></li>
-                     <li><a href="chauffage.html">Chauffage</a></li>
-                     <li><a href="climatisation.html">Climatisation</a></li>
-                     <li><a href="devis.html">Demande de devis</a></li>
-                     <li><a href="depannage.html" style="color:#FFD700; font-weight:bold;" class="nav-btn-urgent">Dépannage urgent</a></li>
+                     <li><a href="/">Accueil</a></li>
+                     <li><a href="plomberie">Plomberie</a></li>
+                     <li><a href="chauffage">Chauffage</a></li>
+                     <li><a href="climatisation">Climatisation</a></li>
+                     <li><a href="devis">Demande de devis</a></li>
+                     <li><a href="depannage" style="color:#FFD700; font-weight:bold;" class="nav-btn-urgent">Dépannage urgent</a></li>
                  </ul>
                  <div class="mt-5 text-white">
                      <p><i class="fas fa-phone-alt text-warning me-2"></i> 02 32 28 41 69</p>
