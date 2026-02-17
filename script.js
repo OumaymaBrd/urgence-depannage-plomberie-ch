@@ -95,7 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
              <div class="mobile-nav-wrapper">
                  <div class="mobile-nav-close"><i class="fas fa-times"></i></div>
                  <div class="mobile-logo mb-4">
-                     <span style="color:white; font-size:24px; font-weight:bold; font-family:'Oswald'">STINC</span>
+                     <span style="color:white; font-size:24px; font-weight:bold; font-family:'Oswald'">SmartPlomb Clim</span>
+                     <span style="display:block; color:white; font-size:10px; letter-spacing:1px; margin-top:0px;">URGENCE DÉPANNAGE • PLOMBERIE • CHAUFFAGE</span>
                  </div>
                  <ul class="mobile-menu-list">
                      <li><a href="index.html">Accueil</a></li>
