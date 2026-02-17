@@ -130,4 +130,52 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    /**
+     * DYNAMIC KEYWORD INSERTION (DKI)
+     * Adapts content based on URL parameter ?q=keyword
+     */
+    function adaptContent() {
+        const urlParams = new URLSearchParams(window.location.search);
+        // Look for common search params
+        const query = urlParams.get('q') || urlParams.get('kw') || urlParams.get('query') || '';
+
+        if (!query) return; // No keyword, keep default
+
+        const keyword = query.toLowerCase();
+
+        // Target Elements
+        const bracket = document.getElementById('dynamic-bracket');
+        const title = document.getElementById('dynamic-title');
+        const subtitle = document.getElementById('dynamic-subtitle');
+        const cta = document.getElementById('dynamic-cta');
+
+        // Logic Mappings
+        if (keyword.includes('urgence') || keyword.includes('fuite') || keyword.includes('panne')) {
+            // URGENCY MODE
+            if (bracket) bracket.innerText = "[ INTERVENTION IMMEDIATE 24/7 ]";
+            if (title) title.innerHTML = `DÉPANNAGE<br><span style="color:#FF4500;">URGENCE PLOMBERIE</span>`; // Red/Orange for urgency
+            if (cta) {
+                cta.innerText = "APPELER LE TECHNICIEN";
+                cta.href = "tel:0232284169";
+                cta.style.background = "#FF4500"; // Red background
+                cta.style.color = "white";
+            }
+        }
+        else if (keyword.includes('chauffage') || keyword.includes('chaudière') || keyword.includes('radiateur')) {
+            // HEATING MODE
+            if (bracket) bracket.innerText = "[ EXPERT CHAUFFAGISTE RGE ]";
+            if (title) title.innerHTML = `CHAUFFAGE<br><span style="color:#FFD700;">& ENTRETIEN</span>`;
+            if (subtitle) subtitle.innerText = "Installation et dépannage de chaudières, radiateurs et pompes à chaleur.";
+        }
+        else if (keyword.includes('clim') || keyword.includes('pompe')) {
+            // CLIM MODE
+            if (bracket) bracket.innerText = "[ CLIMATISATION & ÉNERGIE ]";
+            if (title) title.innerHTML = `CLIMATISATION<br><span style="color:#0dcaf0;">RÉVERSIBLE</span>`; // Cyan for Cold
+            if (subtitle) subtitle.innerText = "Restez au frais cet été. Installation et maintenance de votre climatisation.";
+        }
+    }
+
+    // Run DKI
+    adaptContent();
+
 });
