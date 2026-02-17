@@ -173,6 +173,30 @@ document.addEventListener('DOMContentLoaded', () => {
             if (title) title.innerHTML = `CLIMATISATION<br><span style="color:#0dcaf0;">RÉVERSIBLE</span>`; // Cyan for Cold
             if (subtitle) subtitle.innerText = "Restez au frais cet été. Installation et maintenance de votre climatisation.";
         }
+        else if (keyword.includes('maroc') || keyword.includes('casablanca') || keyword.includes('rabat')) {
+            // MAROC MODE
+            if (bracket) bracket.innerText = "[ EXPERTISE FRANCE & MAROC ]";
+            if (title) title.innerHTML = `PLOMBERIE<br><span style="color:#c1272d;">INTERNATIONAL</span>`; // Red (Morocco Flag color)
+            if (subtitle) subtitle.innerText = "Intervention rapide à Évreux (France). Études, Devis et Partenariats pour vos projets au Maroc.";
+            if (cta) {
+                cta.innerText = "CONTACTER L'ÉQUIPE";
+                cta.href = "https://wa.me/33232284169"; // WhatsApp Link
+                cta.style.background = "#c1272d";
+                cta.style.color = "white";
+            }
+        }
+        else if (keyword.includes('avis') || keyword.includes('google') || keyword.includes('carte')) {
+            // GOOGLE / REVIEWS MODE
+            if (bracket) bracket.innerText = "[ AVIS CLIENTS & LOCALISATION ]";
+            if (title) title.innerHTML = `RETROUVEZ-NOUS<br><span style="color:#4285F4;">SUR GOOGLE</span>`; // Google Blue
+            if (subtitle) subtitle.innerText = "Consultez nos avis clients et trouvez notre itinéraire sur Google Maps.";
+            if (cta) {
+                cta.innerText = "VOIR SUR GOOGLE MAPS";
+                cta.href = "https://share.google/Fi8P2aOr0RcM7meqX"; // User provided link
+                cta.style.background = "#4285F4";
+                cta.style.color = "white";
+            }
+        }
     }
 
     // Run DKI
