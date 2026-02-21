@@ -224,37 +224,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // COLLECT DATA
             const formData = new FormData(this);
-            const data = {
-                user_name: formData.get('user_name'),
-                user_phone: formData.get('user_phone'),
-                user_address: formData.get('user_address'),
-                problem_type: formData.get('problem_type'),
-                message: formData.get('message') || 'Pas de description supplémentaire'
-            };
+            const action = this.getAttribute('action');
 
-            // SIMULATION or ACTUAL SEND
-            // For actual use, uncomment below and remove setTimeout
-            /*
-            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", data)
-                .then(() => {
-                    showFeedback('Votre demande a été envoyée avec succès !', 'success');
-                    interventionForm.reset();
-                }, (error) => {
-                    showFeedback('Erreur lors de l\'envoi. Veuillez réessayer ou nous appeler.', 'error');
+            // Send via Fetch (AJAX) to FormSubmit
+            fetch(action, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        showFeedback('Votre demande a été envoyée ! Nos techniciens vous rappellent à oumaymabramid@gmail.com.', 'success');
+                        interventionForm.reset();
+                    } else {
+                        return response.json().then(data => {
+                            if (Object.hasOwn(data, 'errors')) {
+                                showFeedback(data["errors"].map(error => error["message"]).join(", "), 'error');
+                            } else {
+                                showFeedback("Oops! Il y a eu un problème lors de l'envoi.", 'error');
+                            }
+                        })
+                    }
+                })
+                .catch(error => {
+                    showFeedback("Erreur de connexion. Veuillez réessayer ou nous appeler.", 'error');
                 })
                 .finally(() => {
                     btn.disabled = false;
                     btn.innerHTML = originalContent;
                 });
-            */
-
-            // Simulation (to show UI work)
-            setTimeout(() => {
-                showFeedback('Votre demande a été envoyée avec succès ! Nos techniciens vous rappellent.', 'success');
-                interventionForm.reset();
-                btn.disabled = false;
-                btn.innerHTML = originalContent;
-            }, 1500);
         });
     }
 
@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (type === 'success') {
             setTimeout(() => {
                 formFeedback.style.display = 'none';
-            }, 5000);
+            }, 6000);
         }
     }
 });
