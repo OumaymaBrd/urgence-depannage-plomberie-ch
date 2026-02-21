@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
                      <li><a href="chauffage">Chauffage</a></li>
                      <li><a href="climatisation">Climatisation</a></li>
                      <li><a href="devis">Demande de devis</a></li>
-                     <li><a href="depannage" style="color:#FFD700; font-weight:bold;" class="nav-btn-urgent">Dépannage urgent</a></li>
+                     <li><a href="depannage" style="color:#FFD700; font-weight:bold;" class="nav-btn-urgent">Demande d'intervention urgente</a></li>
                  </ul>
                  <div class="mt-5 text-white">
                      <p><i class="fas fa-phone-alt text-warning me-2"></i> 02 32 28 41 69</p>
@@ -202,4 +202,73 @@ document.addEventListener('DOMContentLoaded', () => {
     // Run DKI
     adaptContent();
 
+    // =================================
+    // INTERVENTION FORM SUBMISSION (EmailJS)
+    // =================================
+    const interventionForm = document.getElementById('intervention-form');
+    const formFeedback = document.getElementById('form-feedback');
+
+    if (interventionForm) {
+        // Initialize EmailJS (Replace with user keys)
+        // emailjs.init("YOUR_PUBLIC_KEY");
+
+        interventionForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const btn = this.querySelector('.btn-submit-intervention');
+            const originalContent = btn.innerHTML;
+
+            // Loading state
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+
+            // COLLECT DATA
+            const formData = new FormData(this);
+            const data = {
+                user_name: formData.get('user_name'),
+                user_phone: formData.get('user_phone'),
+                user_address: formData.get('user_address'),
+                problem_type: formData.get('problem_type'),
+                message: formData.get('message') || 'Pas de description supplémentaire'
+            };
+
+            // SIMULATION or ACTUAL SEND
+            // For actual use, uncomment below and remove setTimeout
+            /*
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", data)
+                .then(() => {
+                    showFeedback('Votre demande a été envoyée avec succès !', 'success');
+                    interventionForm.reset();
+                }, (error) => {
+                    showFeedback('Erreur lors de l\'envoi. Veuillez réessayer ou nous appeler.', 'error');
+                })
+                .finally(() => {
+                    btn.disabled = false;
+                    btn.innerHTML = originalContent;
+                });
+            */
+
+            // Simulation (to show UI work)
+            setTimeout(() => {
+                showFeedback('Votre demande a été envoyée avec succès ! Nos techniciens vous rappellent.', 'success');
+                interventionForm.reset();
+                btn.disabled = false;
+                btn.innerHTML = originalContent;
+            }, 1500);
+        });
+    }
+
+    function showFeedback(msg, type) {
+        if (!formFeedback) return;
+        formFeedback.innerText = msg;
+        formFeedback.className = type; // 'success' or 'error'
+        formFeedback.style.display = 'block';
+
+        // Auto hide success
+        if (type === 'success') {
+            setTimeout(() => {
+                formFeedback.style.display = 'none';
+            }, 5000);
+        }
+    }
 });
