@@ -229,6 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // COLLECT DATA FOR EMAILJS
             const templateParams = {
+                title: "URGENCE DÉPANNAGE",
                 user_name: this.Nom_Complet.value,
                 user_phone: this.Telephone.value,
                 user_address: this.Adresse_Intervention.value,
@@ -273,11 +274,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // COLLECT DATA FOR EMAILJS
             // Reusing the same template for now, mapping contact fields to template fields
             const templateParams = {
+                title: "NOUVEAU CONTACT",
                 user_name: this.Nom_Complet.value,
-                user_email: this.Email.value,
                 user_phone: this.Telephone.value,
+                user_address: "Non spécifiée (Formulaire Contact)",
                 problem_type: this.Type_Demande.value,
-                message: this.Message.value
+                message: `Email: ${this.Email.value}\n\nMessage: ${this.Message.value}`
             };
 
             // Envoyer via EmailJS
@@ -315,12 +317,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // COLLECT DATA FOR EMAILJS
             const templateParams = {
+                title: "DEMANDE DE DEVIS",
                 user_name: this.Nom_Complet.value,
                 user_phone: this.Telephone.value,
-                user_email: this.Email.value,
                 user_address: this.Adresse_Intervention.value,
                 problem_type: this.Type_Travaux.value,
-                message: this.Message.value
+                message: `Email: ${this.Email.value}\n\nDescription du projet: ${this.Message.value}`
             };
 
             // Envoyer via EmailJS
