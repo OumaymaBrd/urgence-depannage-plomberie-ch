@@ -206,9 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // =================================
     // INTERVENTION FORM SUBMISSION (EmailJS)
     // =================================
-    const interventionForm = document.getElementById('intervention-form');
-    const formFeedback = document.getElementById('form-feedback');
-
     if (interventionForm) {
         // Initialize EmailJS
         // Clé publique : cLXhX16l1z9aajE5q
@@ -237,11 +234,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // ID de modèle : template_efl8xs6
             emailjs.send("service_755bgss", "template_efl8xs6", templateParams)
                 .then(() => {
-                    showFeedback('Votre demande a été envoyée avec succès ! Notre équipe vous recontacte.', 'success');
+                    showFeedback(interventionForm, formFeedback, 'Votre demande a été envoyée avec succès ! Notre équipe vous recontacte.', 'success');
                     interventionForm.reset();
                 }, (error) => {
                     console.error('EmailJS Error:', error);
-                    showFeedback('Erreur lors de l\'envoi. Veuillez vérifier vos clés EmailJS.', 'error');
+                    showFeedback(interventionForm, formFeedback, 'Erreur lors de l\'envoi. Veuillez vérifier vos clés EmailJS.', 'error');
                 })
                 .finally(() => {
                     btn.disabled = false;
@@ -250,17 +247,72 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function showFeedback(msg, type) {
-        if (!formFeedback) return;
-        formFeedback.innerText = msg;
-        formFeedback.className = type; // 'success' or 'error'
-        formFeedback.style.display = 'block';
+    // =================================
+    // CONTACT FORM SUBMISSION (EmailJS)
+    // =================================
+    const contactForm = document.getElementById('contact-form');
+    const contactFeedback = document.getElementById('contact-form-feedback');
 
-        // Auto hide success
+    if (contactForm) {
+        // Initialize EmailJS (Safe to call twice or check if already initialized)
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init("cLXhX16l1z9aajE5q");
+        }
+
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const btn = this.querySelector('.btn-submit-contact');
+            const originalContent = btn.innerHTML;
+
+            // Loading state
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+
+            // COLLECT DATA FOR EMAILJS
+            // Reusing the same template for now, mapping contact fields to template fields
+            const templateParams = {
+                user_name: this.Nom_Complet.value,
+                user_email: this.Email.value,
+                user_phone: this.Telephone.value,
+                problem_type: this.Type_Demande.value,
+                message: this.Message.value
+            };
+
+            // Envoyer via EmailJS
+            emailjs.send("service_755bgss", "template_efl8xs6", templateParams)
+                .then(() => {
+                    showFeedback(contactForm, contactFeedback, 'Votre message a été envoyé avec succès !', 'success');
+                    contactForm.reset();
+                }, (error) => {
+                    console.error('EmailJS Error:', error);
+                    showFeedback(contactForm, contactFeedback, 'Erreur lors de l\'envoi. Veuillez réessayer plus tard.', 'error');
+                })
+                .finally(() => {
+                    btn.disabled = false;
+                    btn.innerHTML = originalContent;
+                });
+        });
+    }
+
+    function showFeedback(form, feedbackEl, msg, type) {
+        if (!feedbackEl) return;
+        feedbackEl.innerText = msg;
+        feedbackEl.className = type; // 'success' or 'error'
+        feedbackEl.style.display = 'block';
+        feedbackEl.style.marginTop = '15px';
+        feedbackEl.style.padding = '10px';
+        feedbackEl.style.borderRadius = '5px';
+
         if (type === 'success') {
+            feedbackEl.style.backgroundColor = '#d4edda';
+            feedbackEl.style.color = '#155724';
             setTimeout(() => {
-                formFeedback.style.display = 'none';
+                feedbackEl.style.display = 'none';
             }, 6000);
+        } else {
+            feedbackEl.style.backgroundColor = '#f8d7da';
+            feedbackEl.style.color = '#721c24';
         }
     }
 });
