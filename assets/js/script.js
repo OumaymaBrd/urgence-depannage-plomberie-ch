@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
                      <li><a href="climatisation">Climatisation</a></li>
                      <li><a href="devis">Demande de devis</a></li>
                      <li><a href="depannage" style="color:#FFD700; font-weight:bold;" class="nav-btn-urgent">Demande d'intervention urgente</a></li>
+                     <li><a href="https://maps.app.goo.gl/BPZforjxxmXR8NTR7" target="_blank">Localisation</a></li>
                  </ul>
                  <div class="mt-5 text-white">
                      <p><i class="fas fa-phone-alt text-warning me-2"></i> 06 58 95 27 84</p>
