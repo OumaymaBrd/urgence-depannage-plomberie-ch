@@ -204,13 +204,19 @@ document.addEventListener('DOMContentLoaded', () => {
     adaptContent();
 
     // =================================
+    // FORM INITIALIZATION & EMAILJS
+    // =================================
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("cLXhX16l1z9aajE5q");
+    }
+
+    const interventionForm = document.getElementById('intervention-form');
+    const formFeedback = document.getElementById('form-feedback');
+
+    // =================================
     // INTERVENTION FORM SUBMISSION (EmailJS)
     // =================================
     if (interventionForm) {
-        // Initialize EmailJS
-        // Clé publique : cLXhX16l1z9aajE5q
-        emailjs.init("cLXhX16l1z9aajE5q");
-
         interventionForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
@@ -254,11 +260,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactFeedback = document.getElementById('contact-form-feedback');
 
     if (contactForm) {
-        // Initialize EmailJS (Safe to call twice or check if already initialized)
-        if (typeof emailjs !== 'undefined') {
-            emailjs.init("cLXhX16l1z9aajE5q");
-        }
-
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
