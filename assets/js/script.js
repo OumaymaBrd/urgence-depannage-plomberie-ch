@@ -296,6 +296,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // =================================
+    // QUOTE FORM SUBMISSION (EmailJS)
+    // =================================
+    const quoteForm = document.getElementById('quote-form');
+    const quoteFeedback = document.getElementById('quote-form-feedback');
+
+    if (quoteForm) {
+        quoteForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const btn = this.querySelector('.btn-submit-quote');
+            const originalContent = btn.innerHTML;
+
+            // Loading state
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+
+            // COLLECT DATA FOR EMAILJS
+            const templateParams = {
+                user_name: this.Nom_Complet.value,
+                user_phone: this.Telephone.value,
+                user_email: this.Email.value,
+                user_address: this.Adresse_Intervention.value,
+                problem_type: this.Type_Travaux.value,
+                message: this.Message.value
+            };
+
+            // Envoyer via EmailJS
+            emailjs.send("service_755bgss", "template_efl8xs6", templateParams)
+                .then(() => {
+                    showFeedback(quoteForm, quoteFeedback, 'Votre demande de devis a été envoyée avec succès !', 'success');
+                    quoteForm.reset();
+                }, (error) => {
+                    console.error('EmailJS Error:', error);
+                    showFeedback(quoteForm, quoteFeedback, 'Erreur lors de l\'envoi. Veuillez réessayer plus tard.', 'error');
+                })
+                .finally(() => {
+                    btn.disabled = false;
+                    btn.innerHTML = originalContent;
+                });
+        });
+    }
+
     function showFeedback(form, feedbackEl, msg, type) {
         if (!feedbackEl) return;
         feedbackEl.innerText = msg;
