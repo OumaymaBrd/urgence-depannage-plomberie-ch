@@ -233,8 +233,8 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             // Envoyer via EmailJS
-            // Remplacer "YOUR_TEMPLATE_ID" par votre ID de modèle
-            emailjs.send("service_755bgss", "YOUR_TEMPLATE_ID", templateParams)
+            // ID de modèle : template_efl8xs6
+            emailjs.send("service_755bgss", "template_efl8xs6", templateParams)
                 .then(() => {
                     showFeedback('Votre demande a été envoyée avec succès ! Notre équipe vous recontacte.', 'success');
                     interventionForm.reset();
