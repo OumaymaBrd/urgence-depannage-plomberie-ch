@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
              <div class="mobile-nav-wrapper">
                  <div class="mobile-nav-close"><i class="fas fa-times"></i></div>
                  <div class="mobile-logo mb-4">
-                     <span style="color:white; font-size:24px; font-weight:bold; font-family:'Oswald'">SmartPlomb Clim</span>
+                     <span style="color:white; font-size:24px; font-weight:bold; font-family:'Oswald'">Technic Gaz Service</span>
                      <span style="display:block; color:white; font-size:10px; letter-spacing:1px; margin-top:0px;">URGENCE DÉPANNAGE • PLOMBERIE • CHAUFFAGE</span>
                  </div>
                  <ul class="mobile-menu-list">
@@ -230,10 +230,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // COLLECT DATA FOR EMAILJS
             const templateParams = {
                 title: "URGENCE DÉPANNAGE",
-                user_name: this.Nom_Complet.value,
-                user_phone: this.Telephone.value,
-                user_address: this.Adresse_Intervention.value,
-                problem_type: this.Nature_du_Depannage.value,
+                name: this.Nom_Complet.value,
+                phone: this.Telephone.value,
+                address: this.Adresse_Intervention.value,
+                problem: this.Nature_du_Depannage.value,
                 message: this.Details_Demande.value || 'Pas de description supplémentaire'
             };
 
@@ -275,11 +275,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Reusing the same template for now, mapping contact fields to template fields
             const templateParams = {
                 title: "NOUVEAU CONTACT",
-                user_name: this.Nom_Complet.value,
-                user_phone: this.Telephone.value,
-                user_address: "Non spécifiée (Formulaire Contact)",
-                problem_type: this.Type_Demande.value,
-                message: `Email: ${this.Email.value}\n\nMessage: ${this.Message.value}`
+                name: this.Nom_Complet.value,
+                phone: this.Telephone.value,
+                email: this.Email.value,
+                message: this.Message.value
             };
 
             // Envoyer via EmailJS
@@ -318,11 +317,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // COLLECT DATA FOR EMAILJS
             const templateParams = {
                 title: "DEMANDE DE DEVIS",
-                user_name: this.Nom_Complet.value,
-                user_phone: this.Telephone.value,
-                user_address: this.Adresse_Intervention.value,
-                problem_type: this.Type_Travaux.value,
-                message: `Email: ${this.Email.value}\n\nDescription du projet: ${this.Message.value}`
+                name: this.Nom_Complet.value,
+                phone: this.Telephone.value,
+                email: this.Email.value,
+                address: this.Adresse_Intervention.value,
+                type: this.Type_Travaux.value,
+                message: this.Message.value
             };
 
             // Envoyer via EmailJS
