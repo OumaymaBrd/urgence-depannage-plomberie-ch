@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
                  </ul>
                  <div class="mt-5 text-white">
                      <p><i class="fas fa-phone-alt text-warning me-2"></i> 06 58 95 27 84</p>
-                     <p><i class="fas fa-envelope text-warning me-2"></i> contact@stinc.fr</p>
+                     <p><i class="fas fa-envelope text-warning me-2"></i> technicgazservice@gmail.com</p>
                  </div>
              </div>
          `;
