@@ -233,8 +233,8 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             // Envoyer via EmailJS
-            // Remplacer "YOUR_SERVICE_ID" et "YOUR_TEMPLATE_ID" par vos IDs
-            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+            // Remplacer "YOUR_TEMPLATE_ID" par votre ID de modèle
+            emailjs.send("service_755bgss", "YOUR_TEMPLATE_ID", templateParams)
                 .then(() => {
                     showFeedback('Votre demande a été envoyée avec succès ! Notre équipe vous recontacte.', 'success');
                     interventionForm.reset();
