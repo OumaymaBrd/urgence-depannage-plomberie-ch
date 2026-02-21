@@ -122,7 +122,7 @@ a {
     align-items: center;
     height: 90px;
     padding: 0 20px;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -149,9 +149,10 @@ a {
 
 .logo-sub {
     font-size: 10px;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     display: block;
+    white-space: nowrap;
     border-top: 1px solid white;
     margin-top: 2px;
     padding-top: 2px;
@@ -167,7 +168,7 @@ a {
 .main-navigation .menu {
     display: flex !important;
     flex-direction: row !important;
-    gap: 30px;
+    gap: 15px;
     list-style: none !important;
     margin: 0;
     padding: 0;
@@ -177,10 +178,11 @@ a {
     color: white !important;
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     position: relative;
     padding: 10px 0;
+    white-space: nowrap;
 }
 
 .main-navigation ul li.current-menu-item a,
