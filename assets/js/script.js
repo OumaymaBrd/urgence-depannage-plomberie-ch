@@ -209,8 +209,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const formFeedback = document.getElementById('form-feedback');
 
     if (interventionForm) {
-        // Initialize EmailJS (Replace with user keys)
-        // emailjs.init("YOUR_PUBLIC_KEY");
+        // Initialize EmailJS
+        // Remplacer "YOUR_PUBLIC_KEY" par votre clé publique EmailJS
+        emailjs.init("YOUR_PUBLIC_KEY");
 
         interventionForm.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -222,34 +223,24 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.disabled = true;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
 
-            // COLLECT DATA
-            const formData = new FormData(this);
-            const action = this.getAttribute('action');
+            // COLLECT DATA FOR EMAILJS
+            const templateParams = {
+                user_name: this.Nom_Complet.value,
+                user_phone: this.Telephone.value,
+                user_address: this.Adresse_Intervention.value,
+                problem_type: this.Nature_du_Depannage.value,
+                message: this.Details_Demande.value || 'Pas de description supplémentaire'
+            };
 
-            // Send via Fetch (AJAX) to FormSubmit
-            fetch(action, {
-                method: "POST",
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-                .then(response => {
-                    if (response.ok) {
-                        showFeedback('Votre demande a été envoyée ! Nos techniciens vous rappellent à oumaymabramid@gmail.com.', 'success');
-                        interventionForm.reset();
-                    } else {
-                        return response.json().then(data => {
-                            if (Object.hasOwn(data, 'errors')) {
-                                showFeedback(data["errors"].map(error => error["message"]).join(", "), 'error');
-                            } else {
-                                showFeedback("Oops! Il y a eu un problème lors de l'envoi.", 'error');
-                            }
-                        })
-                    }
-                })
-                .catch(error => {
-                    showFeedback("Erreur de connexion. Veuillez réessayer ou nous appeler.", 'error');
+            // Envoyer via EmailJS
+            // Remplacer "YOUR_SERVICE_ID" et "YOUR_TEMPLATE_ID" par vos IDs
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+                .then(() => {
+                    showFeedback('Votre demande a été envoyée avec succès ! Notre équipe vous recontacte.', 'success');
+                    interventionForm.reset();
+                }, (error) => {
+                    console.error('EmailJS Error:', error);
+                    showFeedback('Erreur lors de l\'envoi. Veuillez vérifier vos clés EmailJS.', 'error');
                 })
                 .finally(() => {
                     btn.disabled = false;
