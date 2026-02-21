@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
                      <li><a href="depannage" style="color:#FFD700; font-weight:bold;" class="nav-btn-urgent">Demande d'intervention urgente</a></li>
                  </ul>
                  <div class="mt-5 text-white">
-                     <p><i class="fas fa-phone-alt text-warning me-2"></i> 02 32 28 41 69</p>
+                     <p><i class="fas fa-phone-alt text-warning me-2"></i> 06 58 95 27 84</p>
                      <p><i class="fas fa-envelope text-warning me-2"></i> contact@stinc.fr</p>
                  </div>
              </div>
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (title) title.innerHTML = `DÉPANNAGE<br><span style="color:#FF4500;">URGENCE PLOMBERIE</span>`; // Red/Orange for urgency
             if (cta) {
                 cta.innerText = "APPELER LE TECHNICIEN";
-                cta.href = "tel:0232284169";
+                cta.href = "tel:0658952784";
                 cta.style.background = "#FF4500"; // Red background
                 cta.style.color = "white";
             }
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (subtitle) subtitle.innerText = "Intervention rapide à Évreux (France). Études, Devis et Partenariats pour vos projets au Maroc.";
             if (cta) {
                 cta.innerText = "CONTACTER L'ÉQUIPE";
-                cta.href = "https://wa.me/33232284169"; // WhatsApp Link
+                cta.href = "https://wa.me/33658952784"; // WhatsApp Link
                 cta.style.background = "#c1272d";
                 cta.style.color = "white";
             }
