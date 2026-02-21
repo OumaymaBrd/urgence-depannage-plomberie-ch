@@ -210,8 +210,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (interventionForm) {
         // Initialize EmailJS
-        // Remplacer "YOUR_PUBLIC_KEY" par votre clé publique EmailJS
-        emailjs.init("YOUR_PUBLIC_KEY");
+        // Clé publique : cLXhX16l1z9aajE5q
+        emailjs.init("cLXhX16l1z9aajE5q");
 
         interventionForm.addEventListener('submit', function (e) {
             e.preventDefault();
