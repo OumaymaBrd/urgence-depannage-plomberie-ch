@@ -184,19 +184,20 @@
                                             value="Nouvelle Demande d'Intervention - SmartPlomb Clim">
                                         <input type="hidden" name="_template" value="table">
                                         <input type="hidden" name="_captcha" value="true">
+                                        <input type="hidden" name="_language" value="fr">
 
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-label">Nom Complet</label>
-                                                    <input type="text" name="user_name" class="form-control-custom"
+                                                    <input type="text" name="Nom_Complet" class="form-control-custom"
                                                         placeholder="Ex: Jean Dupont" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-label">Téléphone</label>
-                                                    <input type="tel" name="user_phone" class="form-control-custom"
+                                                    <input type="tel" name="Telephone" class="form-control-custom"
                                                         placeholder="06 00 00 00 00" required>
                                                 </div>
                                             </div>
@@ -204,13 +205,13 @@
 
                                         <div class="form-group">
                                             <label class="form-label">Adresse de l'intervention</label>
-                                            <input type="text" name="user_address" class="form-control-custom"
+                                            <input type="text" name="Adresse_Intervention" class="form-control-custom"
                                                 placeholder="Votre adresse à Évreux" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="form-label">Type de problème</label>
-                                            <select name="problem_type" class="form-control-custom" required>
+                                            <select name="Nature_du_Depannage" class="form-control-custom" required>
                                                 <option value="" disabled selected>Sélectionnez un type</option>
                                                 <option value="Fuite d'eau">Fuite d'eau</option>
                                                 <option value="Canalisation bouchée">Canalisation bouchée</option>
@@ -223,7 +224,7 @@
 
                                         <div class="form-group">
                                             <label class="form-label">Description (Optionnel)</label>
-                                            <textarea name="message" class="form-control-custom"
+                                            <textarea name="Details_Demande" class="form-control-custom"
                                                 placeholder="Décrivez brièvement le problème..."></textarea>
                                         </div>
 
